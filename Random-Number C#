@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> randomNumbers = GenerateRandomNumbers(10, 1, 100);
+        List<int> evenNumbers = GetEvenNumbers(randomNumbers);
+
+        Console.WriteLine("Random Numbers List:");
+        PrintNumbers(randomNumbers);
+
+        Console.WriteLine("\nEven Numbers:");
+        PrintNumbers(evenNumbers);
+        Console.WriteLine("\nPress any key to exit...");
+        Console.ReadKey();
+    }
+
+    static List<int> GenerateRandomNumbers(int count, int min, int max)
+    {
+        Random random = new Random();
+        List<int> randomNumbers = new List<int>();
+
+        for (int i = 0; i < count; i++)
+        {
+            randomNumbers.Add(random.Next(min, max + 1));
+        }
+
+        return randomNumbers;
+    }
+
+    static List<int> GetEvenNumbers(List<int> numbers)
+    {
+        List<int> evenNumbers = new List<int>();
+
+        foreach (int number in numbers)
+        {
+            if (number % 2 == 0)
+            {
+                evenNumbers.Add(number);
+            }
+        }
+
+        return evenNumbers;
+    }
+
+    static void PrintNumbers(List<int> numbers)
+    {
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+        }
+    }
+}
