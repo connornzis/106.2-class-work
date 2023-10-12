@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> cities = new List<string>
+        {
+            "Paris",
+            "New York",
+            "Tokyo",
+            "Rome",
+            "Berlin",
+            "London",
+            "Sydney",
+            "Madrid"
+        };
+
+        List<string> shortCities = new List<string>();
+
+        Console.WriteLine("Cities with at most 5 characters (press 'Q' to quit):");
+
+        foreach (var city in cities)
+        {
+            if (city.Length <= 5)
+            {
+                shortCities.Add(city);
+                Console.WriteLine(city);
+            }
+        }
+
+        while (true)
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            if (keyInfo.Key == ConsoleKey.Q)
+                break;
+        }
+    }
+}
